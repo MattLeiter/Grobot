@@ -77,27 +77,27 @@ extern "C" {
 #endif	/* XC_HEADER_TEMPLATE_H */
 
 // adc variables
-volatile unsigned char adc_result;
-volatile unsigned char adc_lcd_update;
+extern volatile unsigned char adc_result;
+extern volatile unsigned char adc_lcd_update;
 
 
 // tim.h variables
-volatile unsigned char sec;
-volatile unsigned char min;
-volatile unsigned char hrs;
-volatile unsigned char tim_lcd_update;
-volatile unsigned char intr_count;
+extern volatile unsigned char sec;
+extern volatile unsigned char min;
+extern volatile unsigned char hrs;
+extern volatile unsigned char tim_lcd_update;
+extern volatile unsigned char intr_count;
 
 
 // delay.h variables
-unsigned int temp_count;
+extern unsigned int temp_count;
 
 
 // lcd.h variables
-volatile unsigned char thousand;
-volatile unsigned char hundred;
-volatile unsigned char tens;
-volatile unsigned char ones;
+extern volatile unsigned char thousand;
+extern volatile unsigned char hundred;
+extern volatile unsigned char tens;
+extern volatile unsigned char ones;
 
 
 

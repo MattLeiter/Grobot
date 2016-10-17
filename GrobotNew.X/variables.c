@@ -10,26 +10,33 @@
 #include "tim.h"
 #include "lcd.h"
 
-extern volatile unsigned char adc_result = 0;
-extern volatile unsigned char adc_lcd_update = 0;
+
+
+/* IF YOU ARE MAKING A VARIABLE HERE, MAKE IT IN VARIABLES.H 
+ * AND DECLARE IT EXTERN
+ */
+
+
+volatile unsigned char adc_result = 0;
+volatile unsigned char adc_lcd_update = 0;
 
 
 // tim.h variables
-extern volatile unsigned char sec = 0;
-extern volatile unsigned char min = 0;
-extern volatile unsigned char hrs = 0;
-extern volatile unsigned char tim_lcd_update = 0;
-extern volatile unsigned char intr_count = 0;
+volatile unsigned char sec = 0;
+volatile unsigned char min = 0;
+volatile unsigned char hrs = 0;
+volatile unsigned char tim_lcd_update = 0;
+volatile unsigned char intr_count = 0;
 
 
 // delay.h variables
-extern unsigned int temp_count = 0;
+unsigned int temp_count = 0;
 
 
 // lcd.h variables
-extern volatile unsigned char thousand = 0;
-extern volatile unsigned char hundred = 0;
-extern volatile unsigned char tens = 0;
-extern volatile unsigned char ones = 0;
+volatile unsigned char thousand = 0;
+volatile unsigned char hundred = 0;
+volatile unsigned char tens = 0;
+volatile unsigned char ones = 0;
 
 

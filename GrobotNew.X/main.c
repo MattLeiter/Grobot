@@ -1,9 +1,11 @@
 #include "xc.h"
 #include <p33FJ256GP710.h>
+
 #include "lcd.h"
 #include "delay.h"
 #include "tim.h"
 #include "adc.h"
+#include "variables.h"
 
 void __attribute__((interrupt, no_auto_psv)) _T1Interrupt( void );
 

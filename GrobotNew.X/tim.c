@@ -14,6 +14,7 @@
 #include "delay.h"
 #include "lcd.h"
 #include "tim.h"
+#include "adc.h"
 #include "variables.h"
 
 

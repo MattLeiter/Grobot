@@ -6,7 +6,10 @@
  */
 
 #include "lcd.h"
-
+#include "delay.h"
+#include "tim.h"
+#include "adc.h"
+#include "variables.h"
 
 
 extern unsigned int temp_count;

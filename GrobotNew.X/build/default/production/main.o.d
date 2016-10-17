@@ -3,4 +3,5 @@ main.c  \
 lcd.h  \
 delay.h  \
 tim.h  \
-adc.h 
+adc.h  \
+ variables.h 
