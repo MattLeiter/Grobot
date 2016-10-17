@@ -77,7 +77,7 @@ extern "C" {
 #endif	/* XC_HEADER_TEMPLATE_H */
 
 // adc variables
-extern volatile unsigned char adc_result;
+extern volatile unsigned long adc_result;
 extern volatile unsigned char adc_lcd_update;
 
 

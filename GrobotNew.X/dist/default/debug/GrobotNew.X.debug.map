@@ -6,7 +6,7 @@ Tool Name:
 Command:
   -p33FJ256GP710 \
   -o \
-  dist/default/production/GrobotNew.X.production.elf \
+  dist/default/debug/GrobotNew.X.debug.elf \
   -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/.. \
   -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib \
   -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../support/PIC24E/gld \
@@ -15,14 +15,22 @@ Command:
   -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../support/dsPIC30F/gld \
   -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../support/dsPIC33E/gld \
   -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../support/dsPIC33F/gld \
-  build/default/production/lcd.o \
-  build/default/production/delay.o \
-  build/default/production/main.o \
-  build/default/production/tim.o \
-  build/default/production/adc.o \
-  build/default/production/variables.o \
+  build/default/debug/lcd.o \
+  build/default/debug/delay.o \
+  build/default/debug/main.o \
+  build/default/debug/tim.o \
+  build/default/debug/adc.o \
+  build/default/debug/variables.o \
+  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00001850.00 \
+  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00001850.01 \
+  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00001850.02 \
+  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00001850.03 \
+  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00001850.04 \
   --defsym=__MPLAB_BUILD=1 \
-  -Tp33FJ256GP710.gld.00 \
+  --defsym=__MPLAB_DEBUG=1 \
+  --defsym=__DEBUG=1 \
+  --defsym=__MPLAB_DEBUGGER_ICD3=1 \
+  -Tp33FJ256GP710.gld.05 \
   --stack=16 \
   --check-sections \
   --data-init \
@@ -34,10 +42,10 @@ Command:
   --stackguard=16 \
   --no-force-link \
   --smart-io \
-  -Map=dist/default/production/GrobotNew.X.production.map \
+  -Map=dist/default/debug/GrobotNew.X.debug.map \
   --report-mem \
   --memorysummary \
-  dist/default/production/memoryfile.xml \
+  dist/default/debug/memoryfile.xml \
   -start-group \
   --library=lega-pic30-elf \
   --library=m-elf \
@@ -81,9 +89,14 @@ Data Memory  [Origin = 0x800, Length = 0x7800]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                        0x800                   0            0x10  (16)
+reserve_data_0x800           0x800                0x20            0x20  (32)
+reserve_data_0x820           0x820                 0x2             0x2  (2)
+reserve_data_0x822           0x822                 0x2             0x2  (2)
+reserve_data_0x824           0x824                 0x2             0x2  (2)
+reserve_data_0x826           0x826                0x2a            0x2a  (42)
+.nbss                        0x850                   0            0x10  (16)
 
-                 Total data memory used (bytes):           0x10  (16) <1%
+                 Total data memory used (bytes):           0x60  (96) <1%
 
 
 Dynamic Memory Usage
@@ -91,40 +104,40 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x810                              0x77f0  (30704)
+stack                        0x860                              0x77a0  (30624)
 
-                 Maximum dynamic memory (bytes):         0x77f0  (30704)
+                 Maximum dynamic memory (bytes):         0x77a0  (30624)
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0800                  _adc_result
-                    0x0804                  _adc_lcd_update
-                    0x0805                  _sec
-                    0x0806                  _min
-                    0x0807                  _hrs
-                    0x0808                  _tim_lcd_update
-                    0x0809                  _intr_count
-                    0x080a                  _temp_count
-                    0x080c                  _thousand
-                    0x080d                  _hundred
-                    0x080e                  _tens
-                    0x080f                  _ones
+                    0x0850                  _adc_result
+                    0x0854                  _adc_lcd_update
+                    0x0855                  _sec
+                    0x0856                  _min
+                    0x0857                  _hrs
+                    0x0858                  _tim_lcd_update
+                    0x0859                  _intr_count
+                    0x085a                  _temp_count
+                    0x085c                  _thousand
+                    0x085d                  _hundred
+                    0x085e                  _tens
+                    0x085f                  _ones
 
 External Symbols in Data Memory (by name):
 
-                    0x0804                  _adc_lcd_update
-                    0x0800                  _adc_result
-                    0x0807                  _hrs
-                    0x080d                  _hundred
-                    0x0809                  _intr_count
-                    0x0806                  _min
-                    0x080f                  _ones
-                    0x0805                  _sec
-                    0x080a                  _temp_count
-                    0x080e                  _tens
-                    0x080c                  _thousand
-                    0x0808                  _tim_lcd_update
+                    0x0854                  _adc_lcd_update
+                    0x0850                  _adc_result
+                    0x0857                  _hrs
+                    0x085d                  _hundred
+                    0x0859                  _intr_count
+                    0x0856                  _min
+                    0x085f                  _ones
+                    0x0855                  _sec
+                    0x085a                  _temp_count
+                    0x085e                  _tens
+                    0x085c                  _thousand
+                    0x0858                  _tim_lcd_update
 
 External Symbols in Program Memory (by address):
 
@@ -199,13 +212,41 @@ FUID3            0xf80016           0x000002
 
 Linker script and memory map
 
-LOAD build/default/production/lcd.o
-LOAD build/default/production/delay.o
-LOAD build/default/production/main.o
-LOAD build/default/production/tim.o
-LOAD build/default/production/adc.o
-LOAD build/default/production/variables.o
+LOAD build/default/debug/lcd.o
+LOAD build/default/debug/delay.o
+LOAD build/default/debug/main.o
+LOAD build/default/debug/tim.o
+LOAD build/default/debug/adc.o
+LOAD build/default/debug/variables.o
+
+reserve_data_0x800
+                    0x0800         0x20
+                    0x0820                  . = 0x20
+ *fill*             0x0800         0x2000
+
+reserve_data_0x820
+                    0x0820          0x2
+                    0x0822                  . = 0x2
+ *fill*             0x0820          0x200
+
+reserve_data_0x822
+                    0x0822          0x2
+                    0x0824                  . = 0x2
+ *fill*             0x0822          0x200
+
+reserve_data_0x824
+                    0x0824          0x2
+                    0x0826                  . = 0x2
+ *fill*             0x0824          0x200
+
+reserve_data_0x826
+                    0x0826         0x2a
+                    0x0850                  . = 0x2a
+ *fill*             0x0826         0x2a00
                     0x0001                  __MPLAB_BUILD = 0x1
+                    0x0001                  __MPLAB_DEBUG = 0x1
+                    0x0001                  __DEBUG = 0x1
+                    0x0001                  __MPLAB_DEBUGGER_ICD3 = 0x1
 LOAD p33FJ256GP710
 LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
                     0xf80000                  __FBS = 0xf80000
@@ -299,46 +340,46 @@ __FUID3
 
 .debug_info       0x000000       0x24c9
  *(.debug_info)
- .debug_info      0x000000        0xa6b build/default/production/lcd.o
- .debug_info      0x000a6b        0x11f build/default/production/delay.o
- .debug_info      0x000b8a         0xbe build/default/production/main.o
- .debug_info      0x000c48        0x8d8 build/default/production/tim.o
- .debug_info      0x001520        0xdc7 build/default/production/adc.o
- .debug_info      0x0022e7        0x1e2 build/default/production/variables.o
+ .debug_info      0x000000        0xa6b build/default/debug/lcd.o
+ .debug_info      0x000a6b        0x11f build/default/debug/delay.o
+ .debug_info      0x000b8a         0xbe build/default/debug/main.o
+ .debug_info      0x000c48        0x8d8 build/default/debug/tim.o
+ .debug_info      0x001520        0xdc7 build/default/debug/adc.o
+ .debug_info      0x0022e7        0x1e2 build/default/debug/variables.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x37e
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xdf build/default/production/lcd.o
- .debug_abbrev    0x0000df         0x56 build/default/production/delay.o
- .debug_abbrev    0x000135         0x36 build/default/production/main.o
- .debug_abbrev    0x00016b         0xdc build/default/production/tim.o
- .debug_abbrev    0x000247        0x100 build/default/production/adc.o
- .debug_abbrev    0x000347         0x37 build/default/production/variables.o
+ .debug_abbrev    0x000000         0xdf build/default/debug/lcd.o
+ .debug_abbrev    0x0000df         0x56 build/default/debug/delay.o
+ .debug_abbrev    0x000135         0x36 build/default/debug/main.o
+ .debug_abbrev    0x00016b         0xdc build/default/debug/tim.o
+ .debug_abbrev    0x000247        0x100 build/default/debug/adc.o
+ .debug_abbrev    0x000347         0x37 build/default/debug/variables.o
 
 .debug_line       0x000000        0x34d
  *(.debug_line)
- .debug_line      0x000000         0xfd build/default/production/lcd.o
- .debug_line      0x0000fd         0x56 build/default/production/delay.o
- .debug_line      0x000153         0x39 build/default/production/main.o
- .debug_line      0x00018c         0xc0 build/default/production/tim.o
- .debug_line      0x00024c         0xd8 build/default/production/adc.o
- .debug_line      0x000324         0x29 build/default/production/variables.o
+ .debug_line      0x000000         0xfd build/default/debug/lcd.o
+ .debug_line      0x0000fd         0x56 build/default/debug/delay.o
+ .debug_line      0x000153         0x39 build/default/debug/main.o
+ .debug_line      0x00018c         0xc0 build/default/debug/tim.o
+ .debug_line      0x00024c         0xd8 build/default/debug/adc.o
+ .debug_line      0x000324         0x29 build/default/debug/variables.o
 
 .debug_frame      0x000000        0x234
  *(.debug_frame)
- .debug_frame     0x000000         0xc4 build/default/production/lcd.o
- .debug_frame     0x0000c4         0x4c build/default/production/delay.o
- .debug_frame     0x000110         0x30 build/default/production/main.o
- .debug_frame     0x000140         0x68 build/default/production/tim.o
- .debug_frame     0x0001a8         0x8c build/default/production/adc.o
+ .debug_frame     0x000000         0xc4 build/default/debug/lcd.o
+ .debug_frame     0x0000c4         0x4c build/default/debug/delay.o
+ .debug_frame     0x000110         0x30 build/default/debug/main.o
+ .debug_frame     0x000140         0x68 build/default/debug/tim.o
+ .debug_frame     0x0001a8         0x8c build/default/debug/adc.o
 
 .debug_str        0x000000         0xf6
  *(.debug_str)
- .debug_str       0x000000         0x3e build/default/production/lcd.o
- .debug_str       0x00003e          0xb build/default/production/delay.o
- .debug_str       0x000049         0x2f build/default/production/tim.o
- .debug_str       0x000078         0x7e build/default/production/adc.o
+ .debug_str       0x000000         0x3e build/default/debug/lcd.o
+ .debug_str       0x00003e          0xb build/default/debug/delay.o
+ .debug_str       0x000049         0x2f build/default/debug/tim.o
+ .debug_str       0x000078         0x7e build/default/debug/adc.o
 
 .debug_loc
  *(.debug_loc)
@@ -350,17 +391,17 @@ __FUID3
                   0x000000        0x1e2
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x61 build/default/production/lcd.o
+                  0x000000         0x61 build/default/debug/lcd.o
  .debug_pubnames
-                  0x000061         0x29 build/default/production/delay.o
+                  0x000061         0x29 build/default/debug/delay.o
  .debug_pubnames
-                  0x00008a         0x1b build/default/production/main.o
+                  0x00008a         0x1b build/default/debug/main.o
  .debug_pubnames
-                  0x0000a5         0x40 build/default/production/tim.o
+                  0x0000a5         0x40 build/default/debug/tim.o
  .debug_pubnames
-                  0x0000e5         0x55 build/default/production/adc.o
+                  0x0000e5         0x55 build/default/debug/adc.o
  .debug_pubnames
-                  0x00013a         0xa8 build/default/production/variables.o
+                  0x00013a         0xa8 build/default/debug/variables.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -368,15 +409,15 @@ __FUID3
 .debug_aranges    0x000000         0x78
  *(.debug_aranges)
  .debug_aranges
-                  0x000000         0x18 build/default/production/lcd.o
+                  0x000000         0x18 build/default/debug/lcd.o
  .debug_aranges
-                  0x000018         0x18 build/default/production/delay.o
+                  0x000018         0x18 build/default/debug/delay.o
  .debug_aranges
-                  0x000030         0x18 build/default/production/main.o
+                  0x000030         0x18 build/default/debug/main.o
  .debug_aranges
-                  0x000048         0x18 build/default/production/tim.o
+                  0x000048         0x18 build/default/debug/tim.o
  .debug_aranges
-                  0x000060         0x18 build/default/production/adc.o
+                  0x000060         0x18 build/default/debug/adc.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -1609,7 +1650,7 @@ LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30
 LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
-OUTPUT(dist/default/production/GrobotNew.X.production.elf elf32-pic30)
+OUTPUT(dist/default/debug/GrobotNew.X.debug.elf elf32-pic30)
 LOAD default_isr
 LOAD data_init
 LOAD shared_data_init
@@ -1617,86 +1658,86 @@ LOAD shared_data_init
 .debug_pubtypes
                   0x000078        0x281
  .debug_pubtypes
-                  0x000078         0xa7 build/default/production/lcd.o
+                  0x000078         0xa7 build/default/debug/lcd.o
  .debug_pubtypes
-                  0x00011f         0x12 build/default/production/delay.o
+                  0x00011f         0x12 build/default/debug/delay.o
  .debug_pubtypes
-                  0x000131         0x12 build/default/production/main.o
+                  0x000131         0x12 build/default/debug/main.o
  .debug_pubtypes
-                  0x000143         0xa7 build/default/production/tim.o
+                  0x000143         0xa7 build/default/debug/tim.o
  .debug_pubtypes
-                  0x0001ea         0xfd build/default/production/adc.o
+                  0x0001ea         0xfd build/default/debug/adc.o
  .debug_pubtypes
-                  0x0002e7         0x12 build/default/production/variables.o
+                  0x0002e7         0x12 build/default/debug/variables.o
 
 __c30_signature
                   0x0002f9         0x30
  __c30_signature
-                  0x0002f9          0x6 build/default/production/lcd.o
+                  0x0002f9          0x6 build/default/debug/lcd.o
  __c30_signature
-                  0x0002ff          0x6 build/default/production/delay.o
+                  0x0002ff          0x6 build/default/debug/delay.o
  __c30_signature
-                  0x000305          0x6 build/default/production/main.o
+                  0x000305          0x6 build/default/debug/main.o
  __c30_signature
-                  0x00030b          0x6 build/default/production/tim.o
+                  0x00030b          0x6 build/default/debug/tim.o
  __c30_signature
-                  0x000311          0x6 build/default/production/adc.o
+                  0x000311          0x6 build/default/debug/adc.o
  __c30_signature
-                  0x000317          0x6 build/default/production/variables.o
+                  0x000317          0x6 build/default/debug/variables.o
  __c30_signature
                   0x00031d          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
                   0x000323          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
 
-.nbss               0x0800         0x10
- .nbss              0x0800         0x10 build/default/production/variables.o
-                    0x0800                  _adc_result
-                    0x0804                  _adc_lcd_update
-                    0x0805                  _sec
-                    0x0806                  _min
-                    0x0807                  _hrs
-                    0x0808                  _tim_lcd_update
-                    0x0809                  _intr_count
-                    0x080a                  _temp_count
-                    0x080c                  _thousand
-                    0x080d                  _hundred
-                    0x080e                  _tens
-                    0x080f                  _ones
+.nbss               0x0850         0x10
+ .nbss              0x0850         0x10 build/default/debug/variables.o
+                    0x0850                  _adc_result
+                    0x0854                  _adc_lcd_update
+                    0x0855                  _sec
+                    0x0856                  _min
+                    0x0857                  _hrs
+                    0x0858                  _tim_lcd_update
+                    0x0859                  _intr_count
+                    0x085a                  _temp_count
+                    0x085c                  _thousand
+                    0x085d                  _hundred
+                    0x085e                  _tens
+                    0x085f                  _ones
 
 .ivt._T1Interrupt
                   0x00001a          0x2
  .ivt._T1Interrupt
-                  0x00001a          0x2 build/default/production/lcd.o
+                  0x00001a          0x2 build/default/debug/lcd.o
 
 .ivt._ADC1Interrupt
                   0x00002e          0x2
  .ivt._ADC1Interrupt
-                  0x00002e          0x2 build/default/production/adc.o
+                  0x00002e          0x2 build/default/debug/adc.o
 
 .const              0x82ac          0x4 load address 0x0002ac  
- .const             0x82ac          0x4 build/default/production/tim.o
+ .const             0x82ac          0x4 build/default/debug/tim.o
 
 .text             0x0002b0        0x328
- .text            0x0002b0        0x172 build/default/production/lcd.o
+ .text            0x0002b0        0x172 build/default/debug/lcd.o
                   0x0002b0                  _Init_LCD
                   0x00033c                  _lcd_cmd
                   0x000366                  _lcd_data
                   0x000396                  _puts_lcd
                   0x0003b6                  _hexdec
                   0x0003da                  __T1Interrupt
- .text            0x000422         0xf0 build/default/production/adc.o
+ .text            0x000422         0xf0 build/default/debug/adc.o
                   0x000422                  _ADC1_init
                   0x000476                  __ADC1Interrupt
                   0x0004a4                  _hex2decADC
                   0x0004ec                  _Update_ADC_LCD
- .text            0x000512         0x84 build/default/production/tim.o
+ .text            0x000512         0x84 build/default/debug/tim.o
                   0x000512                  _TIM_init
                   0x000538                  _TIM3_init
                   0x000550                  _Update_TIM_LCD
- .text            0x000596         0x38 build/default/production/delay.o
+ .text            0x000596         0x38 build/default/debug/delay.o
                   0x000596                  _Delay
                   0x0005b2                  _Delay_Us
- .text            0x0005ce          0xa build/default/production/main.o
+ .text            0x0005ce          0xa build/default/debug/main.o
                   0x0005ce                  _main
 
 .dinit            0x0005d8          0x8

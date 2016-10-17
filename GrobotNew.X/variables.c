@@ -17,7 +17,7 @@
  */
 
 
-volatile unsigned char adc_result = 0;
+volatile unsigned long adc_result = 0;
 volatile unsigned char adc_lcd_update = 0;
 
 

@@ -10,15 +10,10 @@
 void __attribute__((interrupt, no_auto_psv)) _T1Interrupt( void );
 
 
-
-
 int main(void) {
 	/* Initialize the ADC and Timer Module */
-	TIM_init();  //This is to test the timer module
-
-
+	//TIM_init();  //This is to test the timer module
     Init_LCD();
-    
     
 	/* The ADC relies on Timer3, so both must be initialized */
 	ADC1_init();
