@@ -4,7 +4,7 @@ Tool Name:
   c:\program files (x86)\microchip\xc16\v1.26\bin\bin\..\bin/elf-ld.exe
 
 Command:
-  -p33FJ256GP710 \
+  -p33FJ256GP710A \
   -o \
   dist/default/debug/GrobotNew.X.debug.elf \
   -Lc:/program files (x86)/microchip/xc16/v1.26/bin/bin/.. \
@@ -21,16 +21,16 @@ Command:
   build/default/debug/tim.o \
   build/default/debug/adc.o \
   build/default/debug/variables.o \
-  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00001850.00 \
-  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00001850.01 \
-  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00001850.02 \
-  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00001850.03 \
-  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00001850.04 \
+  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00000be4.00 \
+  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00000be4.01 \
+  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00000be4.02 \
+  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00000be4.03 \
+  -TC:\\Users\\Matthew\\AppData\\Local\\Temp\\tmp00000be4.04 \
   --defsym=__MPLAB_BUILD=1 \
   --defsym=__MPLAB_DEBUG=1 \
   --defsym=__DEBUG=1 \
   --defsym=__MPLAB_DEBUGGER_ICD3=1 \
-  -Tp33FJ256GP710.gld.05 \
+  -Tp33FJ256GP710A.gld.05 \
   --stack=16 \
   --check-sections \
   --data-init \
@@ -53,7 +53,7 @@ Command:
   -end-group \
 
 
-Optional library libp33FJ256GP710.a not found
+Optional library libp33FJ256GP710A.a not found
 Archive member included because of file (symbol)
 
 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
@@ -70,11 +70,11 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0xac           0x102  (258)
 .const                       0x2ac                 0x4             0x6  (6)
-.text                        0x2b0               0x328           0x4bc  (1212)
-.dinit                       0x5d8                 0x8             0xc  (12)
-.shared.dinit                0x5e0                 0x2             0x3  (3)
+.text                        0x2b0               0x336           0x4d1  (1233)
+.dinit                       0x5e6                 0x8             0xc  (12)
+.shared.dinit                0x5ee                 0x2             0x3  (3)
 
-                 Total program memory used (bytes):          0x5d3  (1491) <1%
+                 Total program memory used (bytes):          0x5e8  (1512) <1%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0xfc]
@@ -153,38 +153,38 @@ External Symbols in Program Memory (by address):
                   0x0003b6                  _hexdec
                   0x0003da                  __T1Interrupt
                   0x000422                  _ADC1_init
-                  0x000476                  __ADC1Interrupt
-                  0x0004a4                  _hex2decADC
-                  0x0004ec                  _Update_ADC_LCD
-                  0x000512                  _TIM_init
-                  0x000538                  _TIM3_init
-                  0x000550                  _Update_TIM_LCD
-                  0x000596                  _Delay
-                  0x0005b2                  _Delay_Us
-                  0x0005ce                  _main
+                  0x000484                  __ADC1Interrupt
+                  0x0004b2                  _hex2decADC
+                  0x0004fa                  _Update_ADC_LCD
+                  0x000520                  _TIM_init
+                  0x000546                  _TIM3_init
+                  0x00055e                  _Update_TIM_LCD
+                  0x0005a4                  _Delay
+                  0x0005c0                  _Delay_Us
+                  0x0005dc                  _main
 
 External Symbols in Program Memory (by name):
 
                   0x000422                  _ADC1_init
-                  0x000596                  _Delay
-                  0x0005b2                  _Delay_Us
+                  0x0005a4                  _Delay
+                  0x0005c0                  _Delay_Us
                   0x0002b0                  _Init_LCD
-                  0x000538                  _TIM3_init
-                  0x000512                  _TIM_init
-                  0x0004ec                  _Update_ADC_LCD
-                  0x000550                  _Update_TIM_LCD
-                  0x000476                  __ADC1Interrupt
+                  0x000546                  _TIM3_init
+                  0x000520                  _TIM_init
+                  0x0004fa                  _Update_ADC_LCD
+                  0x00055e                  _Update_TIM_LCD
+                  0x000484                  __ADC1Interrupt
                   0x0002a8                  __DefaultInterrupt
                   0x0003da                  __T1Interrupt
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0004a4                  _hex2decADC
+                  0x0004b2                  _hex2decADC
                   0x0003b6                  _hexdec
                   0x00033c                  _lcd_cmd
                   0x000366                  _lcd_data
-                  0x0005ce                  _main
+                  0x0005dc                  _main
                   0x000396                  _puts_lcd
 
 Memory Configuration
@@ -247,7 +247,7 @@ reserve_data_0x826
                     0x0001                  __MPLAB_DEBUG = 0x1
                     0x0001                  __DEBUG = 0x1
                     0x0001                  __MPLAB_DEBUGGER_ICD3 = 0x1
-LOAD p33FJ256GP710
+LOAD p33FJ256GP710A
 LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
                     0xf80000                  __FBS = 0xf80000
                     0xf80002                  __FSS = 0xf80002
@@ -338,14 +338,14 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x24c9
+.debug_info       0x000000       0x24e9
  *(.debug_info)
  .debug_info      0x000000        0xa6b build/default/debug/lcd.o
  .debug_info      0x000a6b        0x11f build/default/debug/delay.o
  .debug_info      0x000b8a         0xbe build/default/debug/main.o
  .debug_info      0x000c48        0x8d8 build/default/debug/tim.o
- .debug_info      0x001520        0xdc7 build/default/debug/adc.o
- .debug_info      0x0022e7        0x1e2 build/default/debug/variables.o
+ .debug_info      0x001520        0xde7 build/default/debug/adc.o
+ .debug_info      0x002307        0x1e2 build/default/debug/variables.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x37e
@@ -357,14 +357,14 @@ __FUID3
  .debug_abbrev    0x000247        0x100 build/default/debug/adc.o
  .debug_abbrev    0x000347         0x37 build/default/debug/variables.o
 
-.debug_line       0x000000        0x34d
+.debug_line       0x000000        0x352
  *(.debug_line)
- .debug_line      0x000000         0xfd build/default/debug/lcd.o
- .debug_line      0x0000fd         0x56 build/default/debug/delay.o
- .debug_line      0x000153         0x39 build/default/debug/main.o
- .debug_line      0x00018c         0xc0 build/default/debug/tim.o
- .debug_line      0x00024c         0xd8 build/default/debug/adc.o
- .debug_line      0x000324         0x29 build/default/debug/variables.o
+ .debug_line      0x000000         0xfe build/default/debug/lcd.o
+ .debug_line      0x0000fe         0x56 build/default/debug/delay.o
+ .debug_line      0x000154         0x39 build/default/debug/main.o
+ .debug_line      0x00018d         0xc1 build/default/debug/tim.o
+ .debug_line      0x00024e         0xdb build/default/debug/adc.o
+ .debug_line      0x000329         0x29 build/default/debug/variables.o
 
 .debug_frame      0x000000        0x234
  *(.debug_frame)
@@ -1717,7 +1717,7 @@ __c30_signature
 .const              0x82ac          0x4 load address 0x0002ac  
  .const             0x82ac          0x4 build/default/debug/tim.o
 
-.text             0x0002b0        0x328
+.text             0x0002b0        0x336
  .text            0x0002b0        0x172 build/default/debug/lcd.o
                   0x0002b0                  _Init_LCD
                   0x00033c                  _lcd_cmd
@@ -1725,23 +1725,23 @@ __c30_signature
                   0x000396                  _puts_lcd
                   0x0003b6                  _hexdec
                   0x0003da                  __T1Interrupt
- .text            0x000422         0xf0 build/default/debug/adc.o
+ .text            0x000422         0xfe build/default/debug/adc.o
                   0x000422                  _ADC1_init
-                  0x000476                  __ADC1Interrupt
-                  0x0004a4                  _hex2decADC
-                  0x0004ec                  _Update_ADC_LCD
- .text            0x000512         0x84 build/default/debug/tim.o
-                  0x000512                  _TIM_init
-                  0x000538                  _TIM3_init
-                  0x000550                  _Update_TIM_LCD
- .text            0x000596         0x38 build/default/debug/delay.o
-                  0x000596                  _Delay
-                  0x0005b2                  _Delay_Us
- .text            0x0005ce          0xa build/default/debug/main.o
-                  0x0005ce                  _main
+                  0x000484                  __ADC1Interrupt
+                  0x0004b2                  _hex2decADC
+                  0x0004fa                  _Update_ADC_LCD
+ .text            0x000520         0x84 build/default/debug/tim.o
+                  0x000520                  _TIM_init
+                  0x000546                  _TIM3_init
+                  0x00055e                  _Update_TIM_LCD
+ .text            0x0005a4         0x38 build/default/debug/delay.o
+                  0x0005a4                  _Delay
+                  0x0005c0                  _Delay_Us
+ .text            0x0005dc          0xa build/default/debug/main.o
+                  0x0005dc                  _main
 
-.dinit            0x0005d8          0x8
- .dinit           0x0005d8          0x8 data_init
+.dinit            0x0005e6          0x8
+ .dinit           0x0005e6          0x8 data_init
 
-.shared.dinit     0x0005e0          0x2
- .shared.dinit    0x0005e0          0x2 shared_data_init
+.shared.dinit     0x0005ee          0x2
+ .shared.dinit    0x0005ee          0x2 shared_data_init

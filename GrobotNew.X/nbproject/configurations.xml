@@ -38,7 +38,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>dsPIC33FJ256GP710</targetDevice>
+        <targetDevice>dsPIC33FJ256GP710A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>ICD3PlatformTool</platformTool>
@@ -168,46 +168,46 @@
         <property key="save-temps" value="false"/>
       </C30Global>
       <ICD3PlatformTool>
-        <property key="ADC 1" value="true"/>
-        <property key="ADC 2" value="true"/>
+        <property key="ADC 1" value="false"/>
+        <property key="ADC 2" value="false"/>
         <property key="AutoSelectMemRanges" value="auto"/>
-        <property key="DCI" value="true"/>
-        <property key="Freeze All Other Peripherals" value="true"/>
-        <property key="I2C1" value="true"/>
-        <property key="I2C2" value="true"/>
-        <property key="INPUT CAPTURE 1" value="true"/>
-        <property key="INPUT CAPTURE 2" value="true"/>
-        <property key="INPUT CAPTURE 3" value="true"/>
-        <property key="INPUT CAPTURE 4" value="true"/>
-        <property key="INPUT CAPTURE 5" value="true"/>
-        <property key="INPUT CAPTURE 6" value="true"/>
-        <property key="INPUT CAPTURE 7" value="true"/>
-        <property key="INPUT CAPTURE 8" value="true"/>
-        <property key="OUTPUT COMPARE 1" value="true"/>
-        <property key="OUTPUT COMPARE 2" value="true"/>
-        <property key="OUTPUT COMPARE 3" value="true"/>
-        <property key="OUTPUT COMPARE 4" value="true"/>
-        <property key="OUTPUT COMPARE 5" value="true"/>
-        <property key="OUTPUT COMPARE 6" value="true"/>
-        <property key="OUTPUT COMPARE 7" value="true"/>
-        <property key="OUTPUT COMPARE 8" value="true"/>
-        <property key="SPI 1" value="true"/>
-        <property key="SPI 2" value="true"/>
+        <property key="DCI" value="false"/>
+        <property key="Freeze All Other Peripherals" value="false"/>
+        <property key="I2C1" value="false"/>
+        <property key="I2C2" value="false"/>
+        <property key="INPUT CAPTURE 1" value="false"/>
+        <property key="INPUT CAPTURE 2" value="false"/>
+        <property key="INPUT CAPTURE 3" value="false"/>
+        <property key="INPUT CAPTURE 4" value="false"/>
+        <property key="INPUT CAPTURE 5" value="false"/>
+        <property key="INPUT CAPTURE 6" value="false"/>
+        <property key="INPUT CAPTURE 7" value="false"/>
+        <property key="INPUT CAPTURE 8" value="false"/>
+        <property key="OUTPUT COMPARE 1" value="false"/>
+        <property key="OUTPUT COMPARE 2" value="false"/>
+        <property key="OUTPUT COMPARE 3" value="false"/>
+        <property key="OUTPUT COMPARE 4" value="false"/>
+        <property key="OUTPUT COMPARE 5" value="false"/>
+        <property key="OUTPUT COMPARE 6" value="false"/>
+        <property key="OUTPUT COMPARE 7" value="false"/>
+        <property key="OUTPUT COMPARE 8" value="false"/>
+        <property key="SPI 1" value="false"/>
+        <property key="SPI 2" value="false"/>
         <property key="SecureSegment.SegmentProgramming" value="SegmentProgrammingAll"/>
-        <property key="TIMER1" value="true"/>
-        <property key="TIMER2" value="true"/>
-        <property key="TIMER3" value="true"/>
-        <property key="TIMER4" value="true"/>
-        <property key="TIMER5" value="true"/>
-        <property key="TIMER6" value="true"/>
-        <property key="TIMER7" value="true"/>
-        <property key="TIMER8" value="true"/>
-        <property key="TIMER9" value="true"/>
+        <property key="TIMER1" value="false"/>
+        <property key="TIMER2" value="false"/>
+        <property key="TIMER3" value="false"/>
+        <property key="TIMER4" value="false"/>
+        <property key="TIMER5" value="false"/>
+        <property key="TIMER6" value="false"/>
+        <property key="TIMER7" value="false"/>
+        <property key="TIMER8" value="false"/>
+        <property key="TIMER9" value="false"/>
         <property key="ToolFirmwareFilePath"
-                  value="Press to browse for a specific firmware version"/>
-        <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
-        <property key="UART 1" value="true"/>
-        <property key="UART 2" value="true"/>
+                  value="C:\Program Files (x86)/Microchip/MPLABX/v3.40/mplab_ide/mplablibs/modules/ext/ICD3.jar/ICD3FW_014426.jam"/>
+        <property key="ToolFirmwareOption.UseLatestFirmware" value="false"/>
+        <property key="UART 1" value="false"/>
+        <property key="UART 2" value="false"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>

@@ -23,6 +23,7 @@ extern volatile unsigned char intr_count ;//= 0;
 
 void ADC1_init(void)
 {
+    TRISA = 0x0600; 
     
     TRISB = 0x0001;
     
@@ -38,6 +39,7 @@ void ADC1_init(void)
 	/* Select input selections for CH0 and convert CH0 (CH 1, 2, and 3 don't operate 12-bit mode) */
 	AD1CON2bits.CSCNA = 1;
 	AD1CON2bits.CHPS  = 0;
+    AD1CON2bits.VCFG  = 3;
 
 	/* This is used for DMA Addresses (will probably use later on) */
 	AD1CON2bits.SMPI    = 0;  //For now set to 0	

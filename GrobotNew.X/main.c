@@ -1,5 +1,5 @@
 #include "xc.h"
-#include <p33FJ256GP710.h>
+#include <p33FJ256GP710A.h>
 
 #include "lcd.h"
 #include "delay.h"
