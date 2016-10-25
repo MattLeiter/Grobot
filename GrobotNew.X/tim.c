@@ -63,11 +63,11 @@ void TIM_init() {
  */
 void TIM3_init() 
 {
-	/* Set the prescaler to 64 to lower clock to 123kHz*/
-	T3CONbits.TCKPS = 2;
+	/* Set the prescaler to 256 to lower clock to 30742Hz */
+	T3CONbits.TCKPS = 3;
 
-	/* Set the Period Counter to 15 to generate a conversion every 125ms */ 	  	
-	PR3 = 0xFFFF;
+	/* Set the Period Counter to 3842 to generate a conversion every 125ms */ 	  	
+	PR3 = 0x0F02;
 	
 	/* Reset the interrupt flag and enable the interrupt flag */    
     IFS0bits.T3IF = 0;

@@ -23,13 +23,12 @@ extern volatile unsigned char intr_count ;//= 0;
 
 void ADC1_init(void)
 {
-    TRISA = 0x0600; 
+    TRISA = 0x0600;            
     
     TRISB = 0x0001;
-    
 	/* Set for 12 bit mode, fractional output */
 	AD1CON1bits.AD12B  = 1;
-	AD1CON1bits.FORM   = 0;
+	AD1CON1bits.FORM   = 0; // <----------- Switched to integer output
 
 	/* For Demo purposes, we are using Timer3 as clock source, might use it later, but mostly likely will
 	   use interal counter */
@@ -39,7 +38,7 @@ void ADC1_init(void)
 	/* Select input selections for CH0 and convert CH0 (CH 1, 2, and 3 don't operate 12-bit mode) */
 	AD1CON2bits.CSCNA = 1;
 	AD1CON2bits.CHPS  = 0;
-    AD1CON2bits.VCFG  = 3;
+    AD1CON2bits.VCFG  = 3; // <--------- Makes sure we are using external
 
 	/* This is used for DMA Addresses (will probably use later on) */
 	AD1CON2bits.SMPI    = 0;  //For now set to 0	
@@ -68,8 +67,6 @@ void ADC1_init(void)
     IEC0bits.AD1IE = 1;
     AD1CON1bits.ADON = 1;
     AD1CON1bits.SAMP = 1;
-
-    
 }
 
 
@@ -79,38 +76,46 @@ void ADC1_init(void)
 // */
 void __attribute__((interrupt, no_auto_psv))_ADC1Interrupt(void)
 {
-    
-    if(AD1CON1bits.DONE == 1){
-        adc_result = ADC1BUF0;
-        AD1CON1bits.SAMP = 1;
+    if(intr_count  == 100) {
         
+        adc_result = ADC1BUF0;  
+        // Temperature equation: part 1 -> (Voltage high * adc_result * 1000) / 4095
+        // part 2 -> *((part 1 - 500) * 9 / 5) + 320
+        adc_result = (3* adc_result * 1000) / 4095;
+        adc_result = ((adc_result - 500) * 9 / 5) + 320;
+        
+        lcd_cmd( 0x01 ); //clears
+        puts_lcd((unsigned char *)"Temp ", 5);
+
+        intr_count = 0;
+        
+        if(adc_result < 600) {
+            PORTA = 0x0004;
+        }
+        
+        /* Convert ADC value into parts*/
+    	hex2decADC(adc_result);
+	
+    	/* Display the ADC result */
+        if(thousand != 0){
+         lcd_data(thousand + 0x30);
+        }
+        
+    	lcd_data(hundred + 0x30);
+    	lcd_data(tens + 0x30);
+        lcd_data(0x2E);
+    	lcd_data(ones + 0x30);
+        lcd_data(0x46);
+
+        /* Rest these values */
+        thousand   = 0;
+        hundred    = 0;
+        tens       = 0;
+        ones       = 0;
+        adc_result = 0;
     }
-    else if(AD1CON1bits.DONE == 0){
-        adc_result = 5;
-    }
-//    
-//    if(intr_count  == 200) {
-//        	adc_result     = ADC1BUF0;  
-//        
-//        //lcd_cmd( 0x01 ); //clears
-//        //puts_lcd((unsigned char *)"Print ", 6);
-//
-//        intr_count = 0;
-//        
-//        
-//        /* Convert ADC value into parts*/
-//    	hex2decADC(adc_result);
-//	
-//    	/* Display the ADC result */
-//    	lcd_data(thousand + 0x30);
-//    	lcd_data(hundred + 0x30);
-//    	lcd_data(tens + 0x30);
-//    	lcd_data(ones + 0x30);
-//      
-//        //adc_lcd_update = 1;
-//    }
-//   
-//    intr_count++;
+   
+    intr_count++;
 }
 
 
@@ -120,7 +125,7 @@ void __attribute__((interrupt, no_auto_psv))_ADC1Interrupt(void)
 // * Converts up to the thousands
 // */
 //
-void hex2decADC( unsigned int hexnum ) {
+void hex2decADC( unsigned long hexnum ) {
    
 	while ( hexnum >= 1000 ) {
 	  hexnum -= 1000;

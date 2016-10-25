@@ -34,9 +34,9 @@ unsigned int temp_count = 0;
 
 
 // lcd.h variables
-volatile unsigned char thousand = 0;
-volatile unsigned char hundred = 0;
-volatile unsigned char tens = 0;
-volatile unsigned char ones = 0;
+volatile unsigned int thousand = 0;
+volatile unsigned int hundred = 0;
+volatile unsigned int tens = 0;
+volatile unsigned int ones = 0;
 
 

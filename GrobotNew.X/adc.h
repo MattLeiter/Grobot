@@ -78,6 +78,6 @@ extern "C" {
 
 void ADC1_init(void);
 void Update_ADC_LCD();
-void hex2decADC(unsigned int hexnum );
+void hex2decADC(unsigned long hexnum );
 
 
