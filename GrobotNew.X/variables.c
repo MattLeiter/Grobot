@@ -38,5 +38,6 @@ volatile unsigned int thousand = 0;
 volatile unsigned int hundred = 0;
 volatile unsigned int tens = 0;
 volatile unsigned int ones = 0;
+volatile unsigned int scan = 0;
 
 

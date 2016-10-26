@@ -98,6 +98,4 @@ extern volatile unsigned char thousand;
 extern volatile unsigned char hundred;
 extern volatile unsigned char tens;
 extern volatile unsigned char ones;
-
-
-
+extern volatile unsigned char scan;

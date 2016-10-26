@@ -53,7 +53,7 @@ void ADC1_init(void)
 	/* Enable AN0, AN5, AN6 for channel scan */	
 	AD1CSSH = 0x0000;
 	AD1CSSLbits.CSS0=1;
-//	AD1CSSLbits.CSS5=1;
+	AD1CSSLbits.CSS5=1;
 //	AD1CSSLbits.CSS6=1;
  
 	/* Set AN1 and AN6 Analog Input*/
@@ -76,21 +76,23 @@ void ADC1_init(void)
 // */
 void __attribute__((interrupt, no_auto_psv))_ADC1Interrupt(void)
 {
-    if(intr_count  == 100) {
-        
-        adc_result = ADC1BUF0;  
+    /* Scanning temperature pin */
+    if(scan == 0) {
         // Temperature equation: part 1 -> (Voltage high * adc_result * 1000) / 4095
         // part 2 -> *((part 1 - 500) * 9 / 5) + 320
-        adc_result = (3* adc_result * 1000) / 4095;
+        adc_result = ADC1BUF0;  
+        adc_result = (30* adc_result * 1000) / 40950;
         adc_result = ((adc_result - 500) * 9 / 5) + 320;
         
-        lcd_cmd( 0x01 ); //clears
+        lcd_cmd( 0x01 );
         puts_lcd((unsigned char *)"Temp ", 5);
 
         intr_count = 0;
         
         if(adc_result < 600) {
             PORTA = 0x0004;
+        } else {
+            PORTA = 0x0000;
         }
         
         /* Convert ADC value into parts*/
@@ -106,19 +108,34 @@ void __attribute__((interrupt, no_auto_psv))_ADC1Interrupt(void)
         lcd_data(0x2E);
     	lcd_data(ones + 0x30);
         lcd_data(0x46);
-
-        /* Rest these values */
-        thousand   = 0;
-        hundred    = 0;
-        tens       = 0;
-        ones       = 0;
-        adc_result = 0;
+        scan = 1;
+    } else {
+        adc_result = ADC1BUF0;
+        adc_result = (40 * adc_result) / 3549;
+        hex2decADC(adc_result);
+        
+        if(adc_result < 15) {
+            PORTA = 0x0008; //Switch over to PORTAbits later on
+        } else {
+            PORTA = 0x0000;
+        }
+        
+        lcd_cmd( 0x01 );
+        puts_lcd((unsigned char *)"Water ", 6);
+        lcd_data(tens + 0x30);
+        lcd_data(ones + 0x30);
+        lcd_data(0x6D);
+        lcd_data(0x6D);
+        scan = 0;
     }
-   
-    intr_count++;
-}
-
-
+    
+    /* Rest these values */
+    thousand   = 0;
+    hundred    = 0;
+    tens       = 0;
+    ones       = 0;
+    adc_result = 0;
+ }
 
 ///*
 // * hex2decADC
